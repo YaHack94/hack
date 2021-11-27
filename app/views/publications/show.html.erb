@@ -1,0 +1,63 @@
+<div class="text-center">
+  <h2>Publication</2>
+</div>
+<div class="container mb-8">
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-right">
+                
+                </div>
+                <div class="card-body text-center">
+                     
+                     <p id="notice"><%= notice %></p>
+                    <p>
+                      <img
+                        src="<%= @publication.image %>"
+                        class="img-fluid"
+                        alt=""
+                        style="margin-top: 30px;"
+                      />
+                    </p>
+                    <p>
+                      <%= @publication.content %>
+                    </p>
+                    
+                 </div>
+                 <div class="card-footer center d-flex">
+                    <% if @like.present? %>
+                      <%= button_to 'Unlike', like_path(id: @like.id), method: :delete, class: 'btn btn-danger' %>&nbsp;&nbsp;&nbsp;<i class="fas fa-heart fa-2x"></i>&nbsp;<p style="font-size:25px; color:red"><%= @publication.likes.count %></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <% else %>
+                      <%= button_to 'Like', likes_path(publication_id: @publication.id), method: :post, class: 'btn btn-primary' %>&nbsp;&nbsp;&nbsp;<i class="fas fa-heart fa-2x"></i>&nbsp;<p style="font-size:25px; color:red"><%= @publication.likes.count %></p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <% end %>
+                    <% unless @publication.user_id == current_user.id %>
+                      <% if @favorite.present? %>
+                        <%= button_to 'Supprimer des favories', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-outline-danger' %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <% else %>
+                        <%= button_to 'Mettre en Favorie', favorites_path(publication_id: @publication.id), method: :post, class: 'btn btn-outline-primary' %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <% end %>
+                    <% end %>
+                    <% if current_user.id == @publication.user_id %>
+                      <%= button_to 'Modifier', edit_publication_path, method: :get  %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <%= button_to 'Supprimer', publication_path(@publication.id), method: :delete %>
+                    <% end %>  
+                 </div>
+                 <div class="card-footer text-center">
+                 <div id="comments_area">
+                 <%= render partial: 'comments/index', locals: { comments: @comments, publication: @publication, user: @user } %>
+                  </div>
+                  <%= render partial: 'comments/form', locals: { comment: @comment, publication: @publication } %>
+                  </div>
+             </div>
+         </div>
+         <div class="col-md-1"></div>
+    </div>
+</div>
+
+
+
+
+
+

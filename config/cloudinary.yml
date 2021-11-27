@@ -1,0 +1,19 @@
+  ---
+development:
+  cloud_name: insta-h
+  api_key: 865553249241726
+  api_secret: 2Qbpv0VsW9g0iCnFUgDiMIpRuGY
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: insta-h
+  api_key: 865553249241726
+  api_secret: 2Qbpv0VsW9g0iCnFUgDiMIpRuGY
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: insta-h
+  api_key: 865553249241726
+  api_secret: 2Qbpv0VsW9g0iCnFUgDiMIpRuGY
+  enhance_image_tag: true
+  static_file_support: false

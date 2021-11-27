@@ -1,0 +1,40 @@
+<div class="container mb-8">
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                <h3 class="text-center", style="font-weight: bold;">Profile</h3>
+                </div>
+                <div class="card-body text-center">
+                     
+                <div class="text-center">
+                  <% if current_user.image.blank?%>
+                      <img
+                      src="https://mdbootstrap.com/img/new/standard/city/047.jpg"
+                      class="img-fluid rounded-circle"
+                      alt=""
+                      style="height: 120px; width: 120px; margin-top: 35px;"
+                  />
+                  <% else %>
+                      <img
+                        src="<%= current_user.image.url %>"
+                        class="img-fluid rounded-circle"
+                        alt=""
+                        style="height: 130px; width: 200px; margin-top: 10px; margin-bottom: 20px;"
+                      />
+                  <% end %>
+                  <h6 style="margin-top: 10px;">Nom : <%= current_user.name %> &nbsp;</h6>
+                  <h6 style="margin-top: 10px;">Email : <%= current_user.email %> &nbsp;</h6>
+                  <h6>Publications : <%= current_user.publications.count %> &nbsp;</h6>
+                </div>
+             </div>
+         </div>
+         <div class="card-header mb-5">
+            <div class="list-unstyled text-center" style="margin-top: 20px;">
+              <%= link_to "Modifier", edit_user_registration_path, class: "btn btn-success" %>
+            </div>
+         </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+fr:
+  activerecord:
+    models:
+      comment: commentaire
+      fovirite: favorie
+      like: aimé
+      publication: publication
+      user: utilisateur
+    attributes:
+      publication: publication
+      image: Image
+      content: Contenu
+      user:
+      name: nom
+      email: email
+      current_password: mot de passe actuelle
+      password: mot de passe
+      password_confirmation: confirmation de mot de passe
+      remember_me: se souvenir de moi

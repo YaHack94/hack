@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-blue  mb-3" style="background: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);">
+    <div class="container">
+        <a class="navbar-brand" href="/">Insta-Friends</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                
+                <% if user_signed_in? %>
+                    <%= link_to "Accueil", root_path, class: "btn btn-white" %> &nbsp;&nbsp;
+                    <%= link_to "Tooutes les publications", allpub_path, class: "btn btn-white" %> &nbsp;&nbsp;
+                    <%= link_to "Mes Publications", userpub_path, class: "btn btn-white" %> &nbsp;&nbsp;
+                    <%= link_to "Profile", profil_path, class: "btn btn-white" %> &nbsp;&nbsp;
+                    <%= link_to "Admin", guess_admin_path, class: "btn btn-outline-warning" %> &nbsp;&nbsp;
+                    <%= button_to "Deconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger "%>
+                <% else %> 
+                    <%= link_to "Connexion", new_user_session_path, class: "btn btn-white" %> &nbsp;&nbsp;&nbsp;
+                    <%= link_to "Inscription", new_user_registration_path, class: "btn btn-success" %> &nbsp;&nbsp;&nbsp;
+                    <%= link_to "Invité", guess_path, class: "btn btn-warning" %> &nbsp;&nbsp;&nbsp;
+                    <%= link_to "Admin invité", guess_admin_path, class: "btn btn-outline-warning" %> &nbsp;&nbsp;&nbsp;
+                <% end %>                               
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,45 @@
+<div class="container mb-8">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">
+                <h2>Modifier Profile</h2>
+                </div>
+                <div class="card-body text-center">
+                     
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+                
+                  <div class="field">
+                    <%= f.label :Nom %>
+                    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+                  </div>
+                
+                  <div class="field">
+                    <%= f.label :Email %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                  </div>
+                
+                  <div class="field">
+                    <%= f.label :Image %><br>
+                    <%= f.file_field :image %>
+                  </div><br>
+                
+                  <div class="field">
+                    <%= f.label :current_password %> 
+                    <%= f.password_field :current_password, autocomplete: "current-password" %><br />
+                    <i>(Votre Mot de Passe pour confirmer)</i>
+                  </div>
+                
+                  <div class="actions">
+                    <%= f.submit "Enregistrer" %>
+                  </div>
+                <% end %>
+              </div>
+          </div>
+         <div class="card-header mb-5 text-center">
+          <%= link_to "Retour", :back %>
+         </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+fr:
+  activerecord:
+    models:
+      comment: commentaire  #g
+      favorite: Favori  #g
+      like: aimé  #g
+      publication: publication  #g
+      user: utilisateur  #g
+
+    attributes:
+      comment:
+        content: Teneur  #g
+        publication: :activerecord.models.publication  #g
+        user: :activerecord.models.user  #g
+
+      favorite:
+        publication: :activerecord.models.publication  #g
+        user: :activerecord.models.user  #g
+
+      like:
+        publication: :activerecord.models.publication  #g
+        user: :activerecord.models.user  #g
+
+      publication:
+        comments: commentaires  #g
+        content: Teneur  #g
+        favorite_users: Utilisateurs favoris  #g
+        favorites: Favoris  #g
+        image: Image  #g
+        like_users: Comme les utilisateurs  #g
+        likes: Aime  #g
+        user: :activerecord.models.user  #g
+
+      user:
+        comments: commentaires  #g
+        current_sign_in_at: Connexion actuelle à  #g
+        current_sign_in_ip: IP de connexion actuelle  #g
+        email: E-mail  #g
+        encrypted_password: Mot de passe crypté  #g
+        favorites: Favoris  #g
+        image: Image  #g
+        is_admin: est administrateur  #g
+        last_sign_in_at: Dernière connexion à  #g
+        last_sign_in_ip: Dernière connexion IP  #g
+        likes: Aime  #g
+        name: Nom  #g
+        publications: Publications  #g
+        remember_created_at: Rappelez-vous créé à  #g
+        reset_password_sent_at: Réinitialiser le mot de passe envoyé à  #g
+        reset_password_token: Réinitialiser le jeton de mot de passe  #g
